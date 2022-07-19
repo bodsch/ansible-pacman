@@ -6,11 +6,6 @@ pacman_repositories: {}
 
 pacman_mirrors: {}
 
-pacman_custom_mirrors:
-  - file: /etc/pacman.d/mirrorlist-arch
-    "ARCH MIRRORS":
-      enabled: false
-      servers:
-        - http://mirror.i3d.net/pub/archlinux/$repo/os/$arch
+pacman_custom_mirrors: []
 
 ...

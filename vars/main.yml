@@ -9,7 +9,7 @@ pacman_defaults_config:
   hook_dir: /etc/pacman.d/hooks/
   hold_pkg: pacman glibc
   xfer_command: /usr/bin/curl -L -C - -f -o %o %u
-  #XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+  # XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
   clean_method: KeepInstalled
   architecture: auto
   # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup

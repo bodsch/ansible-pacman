@@ -3,6 +3,11 @@
 #
 ## Arch Linux repository mirrorlist
 
+{% if item | default([]) | count > 0 %}
+  {% set _ = item.pop('file') %}
+  {% set pacman_mirrors = item %}
+{% endif %}
+
 {% if pacman_mirrors is defined %}
   {% for location, values in pacman_mirrors.items() %}
 ## {{ location }}

@@ -1,11 +1,15 @@
 ---
 
+- name: d
+  debug:
+    msg: "{{ ansible_distribution }}"
+
 - name: check, for a valid system
   assert:
-    msg: "this role works only with ArchLinux or ArtixLinux"
+    msg: "this role works only with ArchLinux or Artix Linux"
     quiet: true
     that:
-      - ansible_distribution | lower in [ "archlinux", "artixlinux" ]
+      - ansible_distribution | lower in [ "archlinux", "artix linux" ]
 
 - name: include OS specific configuration ({{ ansible_distribution }} ({{ ansible_os_family }}) {{ ansible_distribution_major_version }})
   include_vars: "{{ lookup('first_found', params) }}"
@@ -18,6 +22,7 @@
         - "{{ ansible_distribution | lower }}-{{ ansible_service_mgr | lower }}.yml"
         # eg. debian / ubuntu / centos / oraclelinux
         - "{{ ansible_distribution | lower }}.yml"
+        - "{{ ansible_distribution | lower | replace(' ', '') }}.yml"
         # eg. redhat / debian / archlinux
         - "{{ ansible_os_family | lower }}.yml"
         - default.yaml

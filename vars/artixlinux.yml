@@ -51,10 +51,16 @@ pacman_defaults_mirrors:
     enabled: true
     servers:
       - https://mirrors.dotsrc.org/artix-linux/repos/$repo/os/$arch
-      - https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
       - http://ftp.ntua.gr/pub/linux/artix-linux/$repo/os/$arch
-      # - https://geo.mirror.pkgbuild.com/$repo/os/$arch
-      # - https://mirror.rackspace.com/archlinux/$repo/os/$arch
-      # - https://mirror.leaseweb.net/archlinux/$repo/os/$arch
+      - https://artix.wheaton.edu/repos/$repo/os/$arch
+      - https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
+      - https://ftp.cc.uoc.gr/mirrors/linux/artixlinux/$repo/os/$arch
+      - https://artix.unixpeople.org/repos/$repo/os/$arch
+      - https://artix.rw-net.de/repos/$repo/os/$arch
+      - https://mirrors.tuna.tsinghua.edu.cn/artixlinux/$repo/os/$arch
+      - http://www.nylxs.com/mirror/repos/$repo/os/$arch
+      - https://ftp.sh.cvut.cz/artix-linux/$repo/os/$arch
+      - https://mirrors.nettek.us/artix-linux/$repo/os/$arch
+      - http://mirror1.artixlinux.org/repos/$repo/os/$arch
 
 ...
