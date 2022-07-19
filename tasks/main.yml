@@ -1,0 +1,9 @@
+---
+
+- name: prepare
+  include_tasks: prepare.yml
+
+- name: configure
+  include_tasks: configure.yml
+
+...

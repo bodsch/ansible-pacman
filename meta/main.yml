@@ -1,0 +1,21 @@
+---
+
+galaxy_info:
+  role_name: pacman
+  namespace: bodsch
+
+  author: Bodo Schulz
+  description: ansible role to configure pacman
+
+  license: Apache
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: ArchLinux
+
+  galaxy_tags:
+    - pacman
+
+dependencies: []
+
+...

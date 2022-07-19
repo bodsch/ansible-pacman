@@ -1,0 +1,102 @@
+---
+
+pacman_defaults_config:
+  root_dir: "/"
+  db_path: /var/lib/pacman/
+  cache_dir: /var/cache/pacman/pkg/
+  log_file: /var/log/pacman.log
+  gpg_dir: /etc/pacman.d/gnupg/
+  hook_dir: /etc/pacman.d/hooks/
+  hold_pkg: pacman glibc
+  xfer_command: /usr/bin/curl -L -C - -f -o %o %u
+  #XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+  clean_method: KeepInstalled
+  architecture: auto
+  # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+  ignore_pkg: []
+  ignore_group: []
+  no_upgrade: []
+  no_extract: []
+
+  # Misc options
+  use_syslog: true
+  color: true
+  no_progress_bar: true
+  check_space: true
+  verbose_pkg_lists: false
+  parallel_downloads: 5
+  # By default, pacman accepts packages signed by keys that its local keyring
+  # trusts (see pacman-key and its man page), as well as unsigned packages.
+  sig_level:
+    - Required
+    - DatabaseOptional
+  local_file_sig_level:
+    - Optional
+  remote_file_sig_level:
+    - Required
+
+pacman_defaults_repositories:
+  custom:
+    enabled: false
+    sig_level:
+      - Optional
+      - TrustAll
+    server: file:///home/custompkgs
+
+  core:
+    enabled: true
+    include: /etc/pacman.d/mirrorlist
+
+  extra:
+    enabled: true
+    include: /etc/pacman.d/mirrorlist
+
+  community-testing:
+    enabled: false
+    include: /etc/pacman.d/mirrorlist
+
+  community:
+    enabled: true
+    include: /etc/pacman.d/mirrorlist
+
+pacman_defaults_mirrors:
+  "Default mirrors":
+    enabled: true
+    servers:
+      # - https://mirrors.dotsrc.org/artix-linux/repos/$repo/os/$arch
+      # - https://mirror.clarkson.edu/artix-linux/repos/$repo/os/$arch
+      # - http://ftp.ntua.gr/pub/linux/artix-linux/$repo/os/$arch
+      - https://geo.mirror.pkgbuild.com/$repo/os/$arch
+      - https://mirror.rackspace.com/archlinux/$repo/os/$arch
+      - https://mirror.leaseweb.net/archlinux/$repo/os/$arch
+
+  "Europe - Czech Republic":
+    enabled: false
+    servers:
+      - https://ftp.sh.cvut.cz/artix-linux/$repo/os/$arch
+  "Europe - Germany":
+    enabled: true
+    servers:
+      - https://mirror.netcologne.de/artix-linux/$repo/os/$arch
+      - http://mirrors.redcorelinux.org/artixlinux/$repo/os/$arch
+      - https://mirror.pascalpuffke.de/artix-linux/$repo/os/$arch
+      - https://ftp.uni-bayreuth.de/linux/artix-linux/$repo/os/$arch
+      - https://ftp.halifax.rwth-aachen.de/artixlinux/$repo/os/$arch
+      - https://mirror.linux.pizza/artix-linux/$repo/os/$arch
+      - https://artix.unixpeople.org/repos/$repo/os/$arch
+      - https://mirror1.artixlinux.org/repos/$repo/os/$arch
+      - https://eu-mirror.artixlinux.org/repos/$repo/os/$arch
+  "Europe - Austria":
+    enabled: false
+    servers:
+      - http://mirror.alwyzon.net/archlinux/$repo/os/$arch
+      - https://mirror.alwyzon.net/archlinux/$repo/os/$arch
+      - http://mirror.digitalnova.at/archlinux/$repo/os/$arch
+      - http://mirror.easyname.at/archlinux/$repo/os/$arch
+      - https://at.arch.mirror.kescher.at/$repo/os/$arch
+      - http://mirror.reisenbauer.ee/archlinux/$repo/os/$arch
+      - https://mirror.reisenbauer.ee/archlinux/$repo/os/$arch
+
+
+
+...

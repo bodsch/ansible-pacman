@@ -1,0 +1,21 @@
+---
+
+- name: create default pacman mirrors
+  template:
+    src: pacman.d/mirrorlist.j2
+    dest: /etc/pacman.d/mirrorlist
+    backup: true
+    mode: 0644
+  notify:
+    - update package cache
+
+- name: create pacman configuration
+  template:
+    src: pacman.conf.j2
+    dest: /etc/pacman.conf
+    backup: true
+    mode: 0644
+  notify:
+    - update package cache
+
+...
