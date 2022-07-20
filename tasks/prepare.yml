@@ -1,9 +1,5 @@
 ---
 
-- name: d
-  debug:
-    msg: "{{ ansible_distribution }}"
-
 - name: check, for a valid system
   assert:
     msg: "this role works only with ArchLinux or Artix Linux"
@@ -22,6 +18,7 @@
         - "{{ ansible_distribution | lower }}-{{ ansible_service_mgr | lower }}.yml"
         # eg. debian / ubuntu / centos / oraclelinux
         - "{{ ansible_distribution | lower }}.yml"
+        # eg. artixlinux
         - "{{ ansible_distribution | lower | replace(' ', '') }}.yml"
         # eg. redhat / debian / archlinux
         - "{{ ansible_os_family | lower }}.yml"
