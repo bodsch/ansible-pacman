@@ -7,6 +7,8 @@ pacman_defaults_repositories:
       - Optional
       - TrustAll
     server: file:///home/custompkgs
+    usage:
+      - All
 
   core:
     enabled: true
@@ -36,6 +38,7 @@ pacman_defaults_mirrors:
     enabled: false
     servers:
       - https://ftp.sh.cvut.cz/artix-linux/$repo/os/$arch
+
   "Europe - Germany":
     enabled: true
     servers:
@@ -48,6 +51,7 @@ pacman_defaults_mirrors:
       - https://artix.unixpeople.org/repos/$repo/os/$arch
       - https://mirror1.artixlinux.org/repos/$repo/os/$arch
       - https://eu-mirror.artixlinux.org/repos/$repo/os/$arch
+
   "Europe - Austria":
     enabled: false
     servers:

@@ -29,15 +29,11 @@
   set_fact:
     pacman_config: "{{ pacman_defaults_config |
       combine( pacman_config, recursive=True ) }}"
-
-- name: merge pacman repositories configuration between defaults and custom
-  set_fact:
     pacman_repositories: "{{ pacman_defaults_repositories |
       combine( pacman_repositories, recursive=True ) }}"
-
-- name: merge pacman mirrors configuration between defaults and custom
-  set_fact:
     pacman_mirrors: "{{ pacman_defaults_mirrors |
       combine( pacman_mirrors, recursive=True ) }}"
+    pacman_options: "{{ pacman_defaults_options |
+      combine( pacman_options, recursive=True ) }}"
 
 ...

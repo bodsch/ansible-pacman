@@ -12,6 +12,12 @@ Ansible role to configure pacman.
 [releases]: https://github.com/bodsch/ansible-pacman/releases
 
 
+## tested operating systems
+
+* ArchLinux
+* ArtixLinux
+
+
 ## Contribution
 
 Please read [Contribution](CONTRIBUTING.md)
@@ -29,6 +35,8 @@ There are predefined values for [Arch Linux](vars/archlinux.yml) and [Artix Linu
 ```yaml
 pacman_config: {}
 
+pacman_options: {}
+
 pacman_repositories: {}
 
 pacman_mirrors: {}
@@ -38,6 +46,8 @@ pacman_custom_mirrors: []
 
 ### `pacman_config`
 
+[documentation](https://archlinux.org/pacman/pacman.conf.5.html#_options)
+
 ```yaml
 pacman_config:
   root_dir: "/"
@@ -46,26 +56,24 @@ pacman_config:
   log_file: /var/log/pacman.log
   gpg_dir: /etc/pacman.d/gnupg/
   hook_dir: /etc/pacman.d/hooks/
-  hold_pkg: pacman glibc
-  xfer_command: /usr/bin/curl -L -C - -f -o %o %u
-  # XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+  hold_pkg:
+    - pacman
+    - glibc
+  xfer_command: /usr/bin/curl -s -L -C - -f -o %o %u
   clean_method: KeepInstalled
   architecture: auto
-  # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
   ignore_pkg: []
   ignore_group: []
   no_upgrade: []
   no_extract: []
 
-  # Misc options
   use_syslog: true
   color: true
   no_progress_bar: true
   check_space: true
   verbose_pkg_lists: false
   parallel_downloads: 5
-  # By default, pacman accepts packages signed by keys that its local keyring
-  # trusts (see pacman-key and its man page), as well as unsigned packages.
+
   sig_level:
     - Required
     - DatabaseOptional
@@ -75,7 +83,29 @@ pacman_config:
     - Required
 ```
 
+### `pacman_config`
+
+```yaml
+pacman_options:
+  no_extract:
+    - "usr/share/help/* !usr/share/help/en*"
+    - "usr/share/gtk-doc/html/* usr/share/doc/*"
+    - "usr/share/locale/* usr/share/X11/locale/* usr/share/i18n/*"
+    - "!*locale*/en*/* !usr/share/i18n/charmaps/UTF-8.gz !usr/share/*locale*/locale.*"
+    - "!usr/share/*locales/en_?? !usr/share/*locales/i18n* !usr/share/*locales/iso*"
+    - "!usr/share/*locales/trans*"
+    - "usr/share/man/* usr/share/info/*"
+    - "usr/share/vim/vim*/lang/*"
+```
+
 ### `pacman_repositories`
+
+[documentation](https://archlinux.org/pacman/pacman.conf.5.html#_repository_sections)
+
+[Package and Database Signature Checking](https://archlinux.org/pacman/pacman.conf.5.html#_package_and_database_signature_checking_a_id_sc_a)
+
+[Artix Support](https://wiki.artixlinux.org/Main/Repositories)
+
 
 ```yaml
 pacman_repositories:
@@ -85,6 +115,8 @@ pacman_repositories:
       - Optional
       - TrustAll
     server: file:///home/custompkgs
+    usage:
+      - All
 
   core:
     enabled: true
@@ -104,6 +136,7 @@ pacman_repositories:
 ```
 
 ### `pacman_mirrors`
+
 
 ```yaml
 pacman_mirrors:
@@ -133,7 +166,6 @@ pacman_custom_mirrors:
       servers:
         - http://mirror.i3d.net/pub/archlinux/$repo/os/$arch
 ```
-
 
 ---
 

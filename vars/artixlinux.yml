@@ -7,10 +7,8 @@ pacman_defaults_repositories:
       - Optional
       - TrustAll
     server: file:///home/custompkgs
-
-  gremlins:
-    enabled: false
-    include: /etc/pacman.d/mirrorlist
+    usage:
+      - All
 
   system:
     enabled: true
@@ -24,7 +22,25 @@ pacman_defaults_repositories:
     enabled: true
     include: /etc/pacman.d/mirrorlist
 
+  # testing
+  gremlins:
+    enabled: false
+    include: /etc/pacman.d/mirrorlist
+
   galaxy-gremlins:
+    enabled: false
+    include: /etc/pacman.d/mirrorlist
+
+  universe:
+    enabled: false
+    include: /etc/pacman.d/mirrorlist-universe
+
+  # staging
+  goblins:
+    enabled: false
+    include: /etc/pacman.d/mirrorlist
+
+  goblins-gremlins:
     enabled: false
     include: /etc/pacman.d/mirrorlist
 
@@ -34,7 +50,7 @@ pacman_defaults_repositories:
     include: /etc/pacman.d/mirrorlist-arch
 
   extra:
-    enabled: true
+    enabled: false
     include: /etc/pacman.d/mirrorlist-arch
 
   community-testing:
@@ -42,9 +58,8 @@ pacman_defaults_repositories:
     include: /etc/pacman.d/mirrorlist-arch
 
   community:
-    enabled: true
+    enabled: false
     include: /etc/pacman.d/mirrorlist-arch
-
 
 pacman_defaults_mirrors:
   "Default mirrors":

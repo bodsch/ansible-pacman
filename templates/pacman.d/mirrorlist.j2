@@ -1,7 +1,7 @@
 #jinja2: trim_blocks: True, lstrip_blocks: True
 # {{ ansible_managed }}
 #
-## Arch Linux repository mirrorlist
+## repository mirrorlist
 
 {% if item | default([]) | count > 0 %}
   {% set _ = item.pop('file') %}

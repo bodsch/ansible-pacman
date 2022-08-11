@@ -2,6 +2,8 @@
 
 pacman_config: {}
 
+pacman_options: {}
+
 pacman_repositories: {}
 
 pacman_mirrors: {}
