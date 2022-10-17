@@ -1,7 +1,7 @@
 ---
 
 - name: create default pacman mirrors
-  template:
+  ansible.builtin.template:
     src: pacman.d/mirrorlist.j2
     dest: /etc/pacman.d/mirrorlist
     backup: true
@@ -10,7 +10,7 @@
     - update package cache
 
 - name: create custom pacman mirrors
-  template:
+  ansible.builtin.template:
     src: pacman.d/mirrorlist.j2
     dest: "{{ item.file }}"
     backup: true
@@ -25,7 +25,7 @@
     - update package cache
 
 - name: create pacman configuration
-  template:
+  ansible.builtin.template:
     src: pacman.conf.j2
     dest: /etc/pacman.conf
     backup: true

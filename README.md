@@ -30,7 +30,7 @@ If you want to use something stable, please use a [Tagged Version](https://githu
 
 ## Configuration
 
-There are predefined values for [Arch Linux](vars/archlinux.yml) and [Artix Linux](vars/artixlinux.yml).
+There are pre-defined values for [Arch Linux](vars/archlinux.yml) and [Artix Linux](vars/artixlinux.yml).
 
 ```yaml
 pacman_config: {}

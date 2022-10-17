@@ -1,7 +1,7 @@
 ---
 
 - name: update package cache
-  package:
+  ansible.builtin.package:
     update_cache: true
 
 ...
