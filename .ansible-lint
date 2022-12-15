@@ -1,7 +1,5 @@
 ---
 
 skip_list:
-  - name[casing]              # All names should start with an uppercase letter. (warning)
-  - name[template]            # Jinja templates should only be at the end of 'name'
-
-...
+  - name[casing]
+  - name[template]
