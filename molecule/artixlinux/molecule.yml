@@ -13,7 +13,7 @@ lint: |
 
 platforms:
   - name: instance
-    image: "bodsch/ansible-${DISTRIBUTION:-artixlinux:latest}"
+    image: "bodsch/ansible-artixlinux:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     docker_host: "${DOCKER_HOST:-unix://run/docker.sock}"
     privileged: true
