@@ -2,7 +2,6 @@
 
 galaxy_info:
   role_name: pacman
-  namespace: bodsch
 
   author: Bodo Schulz
   description: ansible role to configure pacman for Arch- and/or ArtixLinux
